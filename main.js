@@ -1,4 +1,8 @@
+var scoreH2 = document.querySelector('.score');
+var scoreXSpan = document.querySelector('.display_scoreX');
+var scoreOSpan = document.querySelector('.display_scoreO');
 var turnH2 = document.querySelector('.whose_turn');
+var displayPlayer = document.querySelector('.display_player');
 var new_gameButton = document.querySelector('.new_game');
 var resetButton = document.querySelector('.reset')
 var oneDiv = document.querySelector('.one');
@@ -13,6 +17,7 @@ var nineDiv = document.querySelector('.nine');
 //
 var gameOngoing = true;
 var playerX = true; // x goes first
+var winner = null;
 //
 
 function currentGameStatus(e) {
@@ -34,17 +39,129 @@ function currentGameStatus(e) {
     var seven = locationSeven.classList[1];
     var eight = locationEight.classList[1];
     var nine = locationNine.classList[1];
-    console.log(one, two, three, four, five, six, seven, eight, nine);
-}
+    //console.log(one, two, three, four, five, six, seven, eight, nine);
+    var scoreX = 0;
+    var scoreO = 0;
 
+    if ((one) && (one === four) && (one === seven)) {
+        gameOngoing = false;
+        winner = one;
+        if (one === 'X') {
+            scoreX = scoreX + 1;
+            scoreXSpan.innerHTML = `${scoreX}`;
+        }
+        else if (one === 'O') {
+            scoreO = scoreO + 1;
+            scoreOSpan.innerHTML = `${scoreO}`;
+        }
+    }
+    else if ((two) && (two === five) && (two === eight)) {
+        gameOngoing = false;
+        winner = two;
+        if (two === 'X') {
+            scoreX = scoreX + 1;
+            scoreXSpan.innerHTML = `${scoreX}`;
+        }
+        else if (two === 'O') {
+            scoreO = scoreO + 1;
+            scoreOSpan.innerHTML = `${scoreO}`;
+        }
+    }
+    else if ((three) && (three === six) && (three === nine)) {
+        gameOngoing = false;
+        winner = three;
+        if (three === 'X') {
+            scoreX = scoreX + 1;
+            scoreXSpan.innerHTML = `${scoreX}`;
+        }
+        else if (three === 'O') {
+            scoreO = scoreO + 1;
+            scoreOSpan.innerHTML = `${scoreO}`;
+        }
+    }
+    else if ((one) && (one === two) && (one === three)) {
+        gameOngoing = false;
+        winner = one;
+        if (one === 'X') {
+            scoreX = scoreX + 1;
+            scoreXSpan.innerHTML = `${scoreX}`;
+        }
+        else if (one === 'O') {
+            scoreO = scoreO + 1;
+            scoreOSpan.innerHTML = `${scoreO}`;
+        }
+    }
+    else if ((four) && (four === five) && (four === six)) {
+        gameOngoing = false;
+        winner = four;
+        if (four === 'X') {
+            scoreX = scoreX + 1;
+            scoreXSpan.innerHTML = `${scoreX}`;
+        }
+        else if (four === 'O') {
+            scoreO = scoreO + 1;
+            scoreOSpan.innerHTML = `${scoreO}`;
+        }
+    }
+    else if ((seven) && (seven === eight) && (seven === nine)) {
+        gameOngoing = false;
+        winner = seven;
+        if (seven === 'X') {
+            scoreX = scoreX + 1;
+            scoreXSpan.innerHTML = `${scoreX}`;
+        }
+        else if (seven === 'O') {
+            scoreO = scoreO + 1;
+            scoreOSpan.innerHTML = `${scoreO}`;
+        }
+    }
+    else if ((one) && (one === five) && (one === nine)) {
+        gameOngoing = false;
+        winner = one;
+        if (one === 'X') {
+            scoreX = scoreX + 1;
+            scoreXSpan.innerHTML = `${scoreX}`;
+        }
+        else if (one === 'O') {
+            scoreO = scoreO + 1;
+            scoreOSpan.innerHTML = `${scoreO}`;
+        }
+    }
+    else if ((seven) && (seven === five) && (seven === three)) {
+        gameOngoing = false;
+        winner = seven;
+        if (seven === 'X') {
+            scoreX = scoreX + 1;
+            scoreXSpan.innerHTML = `${scoreX}`;
+        }
+        else if (seven === 'O') {
+            scoreO = scoreO + 1;
+            scoreOSpan.innerHTML = `${scoreO}`;
+        }
+    }
+
+}
 //
 function new_gameHandler(e)  {
-    console.log(e);
+    location.reload();
+    document.querySelector(".one").innerHTML = "";
+    document.querySelector(".two").innerHTML = "";
+    document.querySelector(".three").innerHTML = "";
+    document.querySelector(".four").innerHTML = "";
+    document.querySelector(".five").innerHTML = "";
+    document.querySelector(".six").innerHTML = "";
+    document.querySelector(".seven").innerHTML = "";
+    document.querySelector(".eight").innerHTML = "";
+    document.querySelector(".nine").innerHTML = "";
 };
 
 function resetHandler(e)  {
-    console.log(e);
+    location.reload();
+    document.getElementsByClassName("display_player")[0].innerHTML = "X"
+    document.getElementsByClassName("display_scoreX")[0].innerHTML = "0"
+    document.getElementsByClassName("display_scoreO")[0].innerHTML = "0"
 };
+
 
 function oneDivHandler(e) {
     let location = e.target.querySelector('.xo');
@@ -57,11 +174,13 @@ function oneDivHandler(e) {
         location.classList.add('X');
         currentGameStatus();
         playerX = !playerX;
+        document.querySelector(".display_player").innerHTML = "O";
     }
     else {
         location.classList.add('O');
         currentGameStatus();
         playerX = !playerX;
+        document.querySelector(".display_player").innerHTML = "X";
     }
 }
 
@@ -76,11 +195,13 @@ function twoDivHandler(e) {
         location.classList.add('X');
         currentGameStatus();
         playerX = !playerX;
+        document.querySelector(".display_player").innerHTML = "O";
     }
     else {
         location.classList.add('O');
         currentGameStatus();
         playerX = !playerX;
+        document.querySelector(".display_player").innerHTML = "X";
     }
 }
 
@@ -95,11 +216,13 @@ function threeDivHandler(e) {
         location.classList.add('X');
         currentGameStatus();
         playerX = !playerX;
+        document.querySelector(".display_player").innerHTML = "O";
     }
     else {
         location.classList.add('O');
         currentGameStatus();
         playerX = !playerX;
+        document.querySelector(".display_player").innerHTML = "X";
     }
 }
 
@@ -114,11 +237,13 @@ function fourDivHandler(e) {
         location.classList.add('X');
         currentGameStatus();
         playerX = !playerX;
+        document.querySelector(".display_player").innerHTML = "O";
     }
     else {
         location.classList.add('O');
         currentGameStatus();
         playerX = !playerX;
+        document.querySelector(".display_player").innerHTML = "X";
     }
 }
 
@@ -133,11 +258,13 @@ function fiveDivHandler(e) {
         location.classList.add('X');
         currentGameStatus();
         playerX = !playerX;
+        document.querySelector(".display_player").innerHTML = "O";
     }
     else {
         location.classList.add('O');
         currentGameStatus();
         playerX = !playerX;
+        document.querySelector(".display_player").innerHTML = "X";
     }
 }
 
@@ -152,11 +279,13 @@ function sixDivHandler(e) {
         location.classList.add('X');
         currentGameStatus();
         playerX = !playerX;
+        document.querySelector(".display_player").innerHTML = "O";
     }
     else {
         location.classList.add('O');
         currentGameStatus();
         playerX = !playerX;
+        document.querySelector(".display_player").innerHTML = "X";
     }
 }
 
@@ -171,11 +300,13 @@ function sevenDivHandler(e) {
         location.classList.add('X');
         currentGameStatus();
         playerX = !playerX;
+        document.querySelector(".display_player").innerHTML = "O";
     }
     else {
         location.classList.add('O');
         currentGameStatus();
         playerX = !playerX;
+        document.querySelector(".display_player").innerHTML = "X";
     }
 }
 
@@ -190,11 +321,13 @@ function eightDivHandler(e) {
         location.classList.add('X');
         currentGameStatus();
         playerX = !playerX;
+        document.querySelector(".display_player").innerHTML = "O";
     }
     else {
         location.classList.add('O');
         currentGameStatus();
         playerX = !playerX;
+        document.querySelector(".display_player").innerHTML = "X";
     }
 }
 
@@ -209,11 +342,13 @@ function nineDivHandler(e) {
         location.classList.add('X');
         currentGameStatus();
         playerX = !playerX;
+        document.querySelector(".display_player").innerHTML = "O";
     }
     else {
         location.classList.add('O');
         currentGameStatus();
         playerX = !playerX;
+        document.querySelector(".display_player").innerHTML = "X";
     }
 }
 
@@ -229,7 +364,8 @@ if (sevenDiv) { sevenDiv.addEventListener('click', sevenDivHandler); }
 if (eightDiv) { eightDiv.addEventListener('click', eightDivHandler); }
 if (nineDiv) { nineDiv.addEventListener('click', nineDivHandler); }
 
-
-
-
-
+document.addEventListener('DOMContentLoaded', (event) => {
+    document.getElementsByClassName("display_player")[0].innerHTML = "X"
+    document.getElementsByClassName("display_scoreX")[0].innerHTML = "0"
+    document.getElementsByClassName("display_scoreO")[0].innerHTML = "0"
+  })
