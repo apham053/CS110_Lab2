@@ -1,3 +1,7 @@
 {
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "discord.lowerDetailsDebugging": "",
+    "discord.lowerDetailsEditing": "",
+    "discord.lowerDetailsNoWorkspaceFound": "",
+    "discord.lowerDetailsIdling": ""
 }

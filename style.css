@@ -49,6 +49,9 @@ h1 {
 }
 
 .one, .two, .three, .four, .five, .six, .seven, .eight, .nine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   flex-grow: 1;
   width: 100px;
@@ -72,4 +75,12 @@ h1 {
   text-align: center;
 }
 
+.X::after {
+  content: 'X';
+  font-size: 100px;
+}
 
+.O::after {
+  content: 'O';
+  font-size: 100px;
+}
