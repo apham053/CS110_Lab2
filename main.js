@@ -12,7 +12,31 @@ var eightDiv = document.querySelector('.eight');
 var nineDiv = document.querySelector('.nine');
 //
 var gameOngoing = true;
-var playerX = true;
+var playerX = true; // x goes first
+//
+
+function currentGameStatus(e) {
+    let locationOne = (document.querySelector('.one .xo'));
+    let locationTwo = (document.querySelector('.two .xo'));
+    let locationThree = (document.querySelector('.three .xo'));
+    let locationFour = (document.querySelector('.four .xo'));
+    let locationFive = (document.querySelector('.five .xo'));
+    let locationSix = (document.querySelector('.six .xo'));
+    let locationSeven = (document.querySelector('.seven .xo'));
+    let locationEight = (document.querySelector('.eight .xo'));
+    let locationNine = (document.querySelector('.nine .xo'));
+    var one = locationOne.classList[1];
+    var two = locationTwo.classList[1];
+    var three = locationThree.classList[1];
+    var four = locationFour.classList[1];
+    var five = locationFive.classList[1];
+    var six = locationSix.classList[1];
+    var seven = locationSeven.classList[1];
+    var eight = locationEight.classList[1];
+    var nine = locationNine.classList[1];
+    console.log(one, two, three, four, five, six, seven, eight, nine);
+}
+
 //
 function new_gameHandler(e)  {
     console.log(e);
@@ -23,53 +47,175 @@ function resetHandler(e)  {
 };
 
 function oneDivHandler(e) {
-    const location = e.target.classList[0];
+    let location = e.target.querySelector('.xo');
+    location = (document.querySelector('.one .xo'));    
 
-    if (e.target.classList[1] === 'O' || e.target.classList[1] === 'X') {
+    if (location.classList.length > 1) {
         return;
     }
     if (playerX) {
-        e.target.classList.add('X');
+        location.classList.add('X');
+        currentGameStatus();
         playerX = !playerX;
     }
     else {
-        e.target.classList.add('O');
+        location.classList.add('O');
+        currentGameStatus();
         playerX = !playerX;
     }
 }
 
 function twoDivHandler(e) {
-    console.log(e)
+    let location = e.target.querySelector('.xo');
+    location = (document.querySelector('.two .xo'));    
+
+    if (location.classList.length > 1) {
+        return;
+    }
+    if (playerX) {
+        location.classList.add('X');
+        currentGameStatus();
+        playerX = !playerX;
+    }
+    else {
+        location.classList.add('O');
+        currentGameStatus();
+        playerX = !playerX;
+    }
 }
 
 function threeDivHandler(e) {
-    console.log(e)
+    let location = e.target.querySelector('.xo');
+    location = (document.querySelector('.three .xo'));    
+
+    if (location.classList.length > 1) {
+        return;
+    }
+    if (playerX) {
+        location.classList.add('X');
+        currentGameStatus();
+        playerX = !playerX;
+    }
+    else {
+        location.classList.add('O');
+        currentGameStatus();
+        playerX = !playerX;
+    }
 }
 
 function fourDivHandler(e) {
-    console.log(e)
+    let location = e.target.querySelector('.xo');
+    location = (document.querySelector('.four .xo'));    
+
+    if (location.classList.length > 1) {
+        return;
+    }
+    if (playerX) {
+        location.classList.add('X');
+        currentGameStatus();
+        playerX = !playerX;
+    }
+    else {
+        location.classList.add('O');
+        currentGameStatus();
+        playerX = !playerX;
+    }
 }
 
 function fiveDivHandler(e) {
-    console.log(e)
+    let location = e.target.querySelector('.xo');
+    location = (document.querySelector('.five .xo'));    
+
+    if (location.classList.length > 1) {
+        return;
+    }
+    if (playerX) {
+        location.classList.add('X');
+        currentGameStatus();
+        playerX = !playerX;
+    }
+    else {
+        location.classList.add('O');
+        currentGameStatus();
+        playerX = !playerX;
+    }
 }
 
 function sixDivHandler(e) {
-    console.log(e)
+    let location = e.target.querySelector('.xo');
+    location = (document.querySelector('.six .xo'));    
+
+    if (location.classList.length > 1) {
+        return;
+    }
+    if (playerX) {
+        location.classList.add('X');
+        currentGameStatus();
+        playerX = !playerX;
+    }
+    else {
+        location.classList.add('O');
+        currentGameStatus();
+        playerX = !playerX;
+    }
 }
 
 function sevenDivHandler(e) {
-    console.log(e)
+    let location = e.target.querySelector('.xo');
+    location = (document.querySelector('.seven .xo'));    
+
+    if (location.classList.length > 1) {
+        return;
+    }
+    if (playerX) {
+        location.classList.add('X');
+        currentGameStatus();
+        playerX = !playerX;
+    }
+    else {
+        location.classList.add('O');
+        currentGameStatus();
+        playerX = !playerX;
+    }
 }
 
 function eightDivHandler(e) {
-    console.log(e)
+    let location = e.target.querySelector('.xo');
+    location = (document.querySelector('.eight .xo'));    
+
+    if (location.classList.length > 1) {
+        return;
+    }
+    if (playerX) {
+        location.classList.add('X');
+        currentGameStatus();
+        playerX = !playerX;
+    }
+    else {
+        location.classList.add('O');
+        currentGameStatus();
+        playerX = !playerX;
+    }
 }
 
 function nineDivHandler(e) {
-    console.log(e)
-}
+    let location = e.target.querySelector('.xo');
+    location = (document.querySelector('.nine .xo'));    
 
+    if (location.classList.length > 1) {
+        return;
+    }
+    if (playerX) {
+        location.classList.add('X');
+        currentGameStatus();
+        playerX = !playerX;
+    }
+    else {
+        location.classList.add('O');
+        currentGameStatus();
+        playerX = !playerX;
+    }
+}
 
 if (new_gameButton) { new_gameButton.addEventListener('click', new_gameHandler); }
 if (resetButton) { resetButton.addEventListener('click', resetHandler); }
