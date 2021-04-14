@@ -17,10 +17,18 @@ h1 {
   font-size: 1.5em;
 }
 
+.score {
+  margin: 10px auto;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
 /* Button: NewGame and Reset */
-.new_game, .reset {
+.new_game,
+.reset {
   cursor: pointer;
-  text-align:center;
+  text-align: center;
   background-color: #ff8c00;
   color: #000000;
   font-size: 24px;
@@ -31,7 +39,8 @@ h1 {
   margin: 20px auto;
 }
 
-.new_game:hover, .reset:hover {
+.new_game:hover,
+.reset:hover {
   background-color: orange;
 }
 
@@ -48,7 +57,15 @@ h1 {
   flex-wrap: wrap;
 }
 
-.one, .two, .three, .four, .five, .six, .seven, .eight, .nine {
+.one,
+.two,
+.three,
+.four,
+.five,
+.six,
+.seven,
+.eight,
+.nine {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,7 +78,15 @@ h1 {
   position: relative;
 }
 
-.one:hover, .two:hover, .three:hover, .four:hover, .five:hover, .six:hover, .seven:hover, .eight:hover, .nine:hover {
+.one:hover,
+.two:hover,
+.three:hover,
+.four:hover,
+.five:hover,
+.six:hover,
+.seven:hover,
+.eight:hover,
+.nine:hover {
   background-color: rgb(234, 0, 255);
 }
 
@@ -76,11 +101,11 @@ h1 {
 }
 
 .X::after {
-  content: 'X';
+  content: "X";
   font-size: 100px;
 }
 
 .O::after {
-  content: 'O';
+  content: "O";
   font-size: 100px;
 }
