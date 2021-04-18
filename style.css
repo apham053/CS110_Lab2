@@ -10,13 +10,7 @@ h1 {
   font-size: 4em;
 }
 
-.whose_turn {
-  margin: 10px auto;
-  margin-bottom: 20px;
-  text-align: center;
-  font-size: 1.5em;
-}
-
+.whose_turn,
 .score {
   margin: 10px auto;
   margin-bottom: 20px;
@@ -100,7 +94,7 @@ h1 {
   text-align: center;
 }
 
-.X::after {
+/* .X::after {
   content: "X";
   font-size: 100px;
 }
@@ -108,4 +102,4 @@ h1 {
 .O::after {
   content: "O";
   font-size: 100px;
-}
+} */
