@@ -18,30 +18,48 @@ var nineDiv = document.querySelector(".nine");
 var gameOngoing = true;
 var playerX = true; // x goes first
 var winner = null;
+var scoreX = 0;
+var scoreO = 0;
 //
 
 function currentGameStatus(e) {
-  let locationOne = document.querySelector(".one .xo");
-  let locationTwo = document.querySelector(".two .xo");
-  let locationThree = document.querySelector(".three .xo");
-  let locationFour = document.querySelector(".four .xo");
-  let locationFive = document.querySelector(".five .xo");
-  let locationSix = document.querySelector(".six .xo");
-  let locationSeven = document.querySelector(".seven .xo");
-  let locationEight = document.querySelector(".eight .xo");
-  let locationNine = document.querySelector(".nine .xo");
-  var one = locationOne.classList[1];
-  var two = locationTwo.classList[1];
-  var three = locationThree.classList[1];
-  var four = locationFour.classList[1];
-  var five = locationFive.classList[1];
-  var six = locationSix.classList[1];
-  var seven = locationSeven.classList[1];
-  var eight = locationEight.classList[1];
-  var nine = locationNine.classList[1];
-  //console.log(one, two, three, four, five, six, seven, eight, nine);
-  var scoreX = 0;
-  var scoreO = 0;
+  let locationOne = document
+    .getElementsByClassName("one")[0]
+    .getElementsByClassName("xo")[0];
+  let locationTwo = document
+    .getElementsByClassName("two")[0]
+    .getElementsByClassName("xo")[0];
+  let locationThree = document
+    .getElementsByClassName("three")[0]
+    .getElementsByClassName("xo")[0];
+  let locationFour = document
+    .getElementsByClassName("four")[0]
+    .getElementsByClassName("xo")[0];
+  let locationFive = document
+    .getElementsByClassName("five")[0]
+    .getElementsByClassName("xo")[0];
+  let locationSix = document
+    .getElementsByClassName("six")[0]
+    .getElementsByClassName("xo")[0];
+  let locationSeven = document
+    .getElementsByClassName("seven")[0]
+    .getElementsByClassName("xo")[0];
+  let locationEight = document
+    .getElementsByClassName("eight")[0]
+    .getElementsByClassName("xo")[0];
+  let locationNine = document
+    .getElementsByClassName("nine")[0]
+    .getElementsByClassName("xo")[0];
+  var one = locationOne.innerHTML;
+  var two = locationTwo.innerHTML;
+  var three = locationThree.innerHTML;
+  var four = locationFour.innerHTML;
+  var five = locationFive.innerHTML;
+  var six = locationSix.innerHTML;
+  var seven = locationSeven.innerHTML;
+  var eight = locationEight.innerHTML;
+  var nine = locationNine.innerHTML;
+
   if (one && one === four && one === seven && gameOngoing === true) {
     gameOngoing = false;
     winner = one;
@@ -138,9 +156,250 @@ function currentGameStatus(e) {
   }
 }
 
-// Player displays correctly but the board doesn't clear
 function new_gameHandler(e) {
+  gameOngoing = true;
+
+  // Set player to X
+  playerX = true;
   document.getElementsByClassName("display_player")[0].innerHTML = "X";
+
+  // Clear board
+  clearBoard();
+}
+
+function resetHandler(e) {
+  // location.reload();
+  gameOngoing = true;
+
+  // Set player to X and initialize scores again
+  playerX = true;
+  scoreX = 0;
+  scoreO = 0;
+  document.getElementsByClassName("display_player")[0].innerHTML = "X";
+  document.getElementsByClassName("display_scoreX")[0].innerHTML = "0";
+  document.getElementsByClassName("display_scoreO")[0].innerHTML = "0";
+
+  // Clear board
+  clearBoard();
+}
+
+function oneDivHandler(e) {
+  let location = e.target.querySelector(".xo");
+  location = document.querySelector(".one .xo");
+
+  if (
+    location.innerHTML === "X" ||
+    location.innerHTML === "O" ||
+    gameOngoing === false
+  ) {
+    return;
+  }
+  if (playerX) {
+    location.innerHTML = "X";
+    playerX = !playerX;
+    currentGameStatus();
+    document.querySelector(".display_player").innerHTML = "O";
+  } else {
+    location.innerHTML = "O";
+    playerX = !playerX;
+    currentGameStatus();
+    document.querySelector(".display_player").innerHTML = "X";
+  }
+}
+
+function twoDivHandler(e) {
+  let location = e.target.querySelector(".xo");
+  location = document.querySelector(".two .xo");
+
+  if (
+    location.innerHTML === "X" ||
+    location.innerHTML === "O" ||
+    gameOngoing === false
+  ) {
+    return;
+  }
+  if (playerX) {
+    location.innerHTML = "X";
+    playerX = !playerX;
+    currentGameStatus();
+    document.querySelector(".display_player").innerHTML = "O";
+  } else {
+    location.innerHTML = "O";
+    playerX = !playerX;
+    currentGameStatus();
+    document.querySelector(".display_player").innerHTML = "X";
+  }
+}
+
+function threeDivHandler(e) {
+  let location = e.target.querySelector(".xo");
+  location = document.querySelector(".three .xo");
+
+  if (
+    location.innerHTML === "X" ||
+    location.innerHTML === "O" ||
+    gameOngoing === false
+  ) {
+    return;
+  }
+  if (playerX) {
+    location.innerHTML = "X";
+    playerX = !playerX;
+    currentGameStatus();
+    document.querySelector(".display_player").innerHTML = "O";
+  } else {
+    location.innerHTML = "O";
+    playerX = !playerX;
+    currentGameStatus();
+    document.querySelector(".display_player").innerHTML = "X";
+  }
+}
+
+function fourDivHandler(e) {
+  let location = e.target.querySelector(".xo");
+  location = document.querySelector(".four .xo");
+
+  if (
+    location.innerHTML === "X" ||
+    location.innerHTML === "O" ||
+    gameOngoing === false
+  ) {
+    return;
+  }
+  if (playerX) {
+    location.innerHTML = "X";
+    playerX = !playerX;
+    currentGameStatus();
+    document.querySelector(".display_player").innerHTML = "O";
+  } else {
+    location.innerHTML = "O";
+    playerX = !playerX;
+    currentGameStatus();
+    document.querySelector(".display_player").innerHTML = "X";
+  }
+}
+
+function fiveDivHandler(e) {
+  let location = e.target.querySelector(".xo");
+  location = document.querySelector(".five .xo");
+
+  if (
+    location.innerHTML === "X" ||
+    location.innerHTML === "O" ||
+    gameOngoing === false
+  ) {
+    return;
+  }
+  if (playerX) {
+    location.innerHTML = "X";
+    playerX = !playerX;
+    currentGameStatus();
+    document.querySelector(".display_player").innerHTML = "O";
+  } else {
+    location.innerHTML = "O";
+    playerX = !playerX;
+    currentGameStatus();
+    document.querySelector(".display_player").innerHTML = "X";
+  }
+}
+
+function sixDivHandler(e) {
+  let location = e.target.querySelector(".xo");
+  location = document.querySelector(".six .xo");
+
+  if (
+    location.innerHTML === "X" ||
+    location.innerHTML === "O" ||
+    gameOngoing === false
+  ) {
+    return;
+  }
+  if (playerX) {
+    location.innerHTML = "X";
+    playerX = !playerX;
+    currentGameStatus();
+    document.querySelector(".display_player").innerHTML = "O";
+  } else {
+    location.innerHTML = "O";
+    playerX = !playerX;
+    currentGameStatus();
+    document.querySelector(".display_player").innerHTML = "X";
+  }
+}
+
+function sevenDivHandler(e) {
+  let location = e.target.querySelector(".xo");
+  location = document.querySelector(".seven .xo");
+
+  if (
+    location.innerHTML === "X" ||
+    location.innerHTML === "O" ||
+    gameOngoing === false
+  ) {
+    return;
+  }
+  if (playerX) {
+    location.innerHTML = "X";
+    playerX = !playerX;
+    currentGameStatus();
+    document.querySelector(".display_player").innerHTML = "O";
+  } else {
+    location.innerHTML = "O";
+    playerX = !playerX;
+    currentGameStatus();
+    document.querySelector(".display_player").innerHTML = "X";
+  }
+}
+
+function eightDivHandler(e) {
+  let location = e.target.querySelector(".xo");
+  location = document.querySelector(".eight .xo");
+
+  if (
+    location.innerHTML === "X" ||
+    location.innerHTML === "O" ||
+    gameOngoing === false
+  ) {
+    return;
+  }
+  if (playerX) {
+    location.innerHTML = "X";
+    playerX = !playerX;
+    currentGameStatus();
+    document.querySelector(".display_player").innerHTML = "O";
+  } else {
+    location.innerHTML = "O";
+    playerX = !playerX;
+    currentGameStatus();
+    document.querySelector(".display_player").innerHTML = "X";
+  }
+}
+
+function nineDivHandler(e) {
+  let location = e.target.querySelector(".xo");
+  location = document.querySelector(".nine .xo");
+
+  if (
+    location.innerHTML === "X" ||
+    location.innerHTML === "O" ||
+    gameOngoing === false
+  ) {
+    return;
+  }
+  if (playerX) {
+    location.innerHTML = "X";
+    playerX = !playerX;
+    currentGameStatus();
+    document.querySelector(".display_player").innerHTML = "O";
+  } else {
+    location.innerHTML = "O";
+    playerX = !playerX;
+    currentGameStatus();
+    document.querySelector(".display_player").innerHTML = "X";
+  }
+}
+
+function clearBoard(e) {
   document
     .getElementsByClassName("one")[0]
     .getElementsByClassName("xo")[0].innerHTML = "";
@@ -168,193 +427,6 @@ function new_gameHandler(e) {
   document
     .getElementsByClassName("nine")[0]
     .getElementsByClassName("xo")[0].innerHTML = "";
-}
-
-function resetHandler(e) {
-  location.reload();
-  document.getElementsByClassName("display_player")[0].innerHTML = "X";
-  document.getElementsByClassName("display_scoreX")[0].innerHTML = "0";
-  document.getElementsByClassName("display_scoreO")[0].innerHTML = "0";
-}
-
-function oneDivHandler(e) {
-  let location = e.target.querySelector(".xo");
-  location = document.querySelector(".one .xo");
-
-  if (location.classList.length > 1 || gameOngoing == false) {
-    return;
-  }
-  if (playerX) {
-    location.classList.add("X");
-    currentGameStatus();
-    playerX = !playerX;
-    document.querySelector(".display_player").innerHTML = "O";
-  } else {
-    location.classList.add("O");
-    currentGameStatus();
-    playerX = !playerX;
-    document.querySelector(".display_player").innerHTML = "X";
-  }
-}
-
-function twoDivHandler(e) {
-  let location = e.target.querySelector(".xo");
-  location = document.querySelector(".two .xo");
-
-  if (location.classList.length > 1 || gameOngoing == false) {
-    return;
-  }
-  if (playerX) {
-    location.classList.add("X");
-    currentGameStatus();
-    playerX = !playerX;
-    document.querySelector(".display_player").innerHTML = "O";
-  } else {
-    location.classList.add("O");
-    currentGameStatus();
-    playerX = !playerX;
-    document.querySelector(".display_player").innerHTML = "X";
-  }
-}
-
-function threeDivHandler(e) {
-  let location = e.target.querySelector(".xo");
-  location = document.querySelector(".three .xo");
-
-  if (location.classList.length > 1 || gameOngoing == false) {
-    return;
-  }
-  if (playerX) {
-    location.classList.add("X");
-    currentGameStatus();
-    playerX = !playerX;
-    document.querySelector(".display_player").innerHTML = "O";
-  } else {
-    location.classList.add("O");
-    currentGameStatus();
-    playerX = !playerX;
-    document.querySelector(".display_player").innerHTML = "X";
-  }
-}
-
-function fourDivHandler(e) {
-  let location = e.target.querySelector(".xo");
-  location = document.querySelector(".four .xo");
-
-  if (location.classList.length > 1 || gameOngoing == false) {
-    return;
-  }
-  if (playerX) {
-    location.classList.add("X");
-    currentGameStatus();
-    playerX = !playerX;
-    document.querySelector(".display_player").innerHTML = "O";
-  } else {
-    location.classList.add("O");
-    currentGameStatus();
-    playerX = !playerX;
-    document.querySelector(".display_player").innerHTML = "X";
-  }
-}
-
-function fiveDivHandler(e) {
-  let location = e.target.querySelector(".xo");
-  location = document.querySelector(".five .xo");
-
-  if (location.classList.length > 1 || gameOngoing == false) {
-    return;
-  }
-  if (playerX) {
-    location.classList.add("X");
-    currentGameStatus();
-    playerX = !playerX;
-    document.querySelector(".display_player").innerHTML = "O";
-  } else {
-    location.classList.add("O");
-    currentGameStatus();
-    playerX = !playerX;
-    document.querySelector(".display_player").innerHTML = "X";
-  }
-}
-
-function sixDivHandler(e) {
-  let location = e.target.querySelector(".xo");
-  location = document.querySelector(".six .xo");
-
-  if (location.classList.length > 1 || gameOngoing == false) {
-    return;
-  }
-  if (playerX) {
-    location.classList.add("X");
-    currentGameStatus();
-    playerX = !playerX;
-    document.querySelector(".display_player").innerHTML = "O";
-  } else {
-    location.classList.add("O");
-    currentGameStatus();
-    playerX = !playerX;
-    document.querySelector(".display_player").innerHTML = "X";
-  }
-}
-
-function sevenDivHandler(e) {
-  let location = e.target.querySelector(".xo");
-  location = document.querySelector(".seven .xo");
-
-  if (location.classList.length > 1 || gameOngoing == false) {
-    return;
-  }
-  if (playerX) {
-    location.classList.add("X");
-    currentGameStatus();
-    playerX = !playerX;
-    document.querySelector(".display_player").innerHTML = "O";
-  } else {
-    location.classList.add("O");
-    currentGameStatus();
-    playerX = !playerX;
-    document.querySelector(".display_player").innerHTML = "X";
-  }
-}
-
-function eightDivHandler(e) {
-  let location = e.target.querySelector(".xo");
-  location = document.querySelector(".eight .xo");
-
-  if (location.classList.length > 1 || gameOngoing == false) {
-    return;
-  }
-  if (playerX) {
-    location.classList.add("X");
-    currentGameStatus();
-    playerX = !playerX;
-    document.querySelector(".display_player").innerHTML = "O";
-  } else {
-    location.classList.add("O");
-    currentGameStatus();
-    playerX = !playerX;
-    document.querySelector(".display_player").innerHTML = "X";
-  }
-}
-
-function nineDivHandler(e) {
-  let location = e.target.querySelector(".xo");
-  location = document.querySelector(".nine .xo");
-
-  if (location.classList.length > 1 || gameOngoing == false) {
-    return;
-  }
-  if (playerX) {
-    location.classList.add("X");
-    currentGameStatus();
-    playerX = !playerX;
-    document.querySelector(".display_player").innerHTML = "O";
-  } else {
-    location.classList.add("O");
-    currentGameStatus();
-    playerX = !playerX;
-    document.querySelector(".display_player").innerHTML = "X";
-  }
 }
 
 // Initialize values
